@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reader - Dream Hub</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="reader.css">
+</head>
+<body>
+    <!-- Background layers from Dream Hub -->
+    <div class="background"></div>
+    <div class="rain-container" id="rain-container"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Dream Hub</div>
+    </nav>
+
+    <!-- Main Reader Area -->
+    <main class="reader-container">
+        <!-- Header Section -->
+        <header class="reader-header">
+            <a href="index.html" class="back-btn">← Back to Hub</a>
+            <h1 class="book-title">Three Days Of Happiness</h1>
+        </header>
+
+        <!-- Content and Sidebar -->
+        <div class="content-wrapper">
+            <!-- Glassmorphic Reading Card -->
+            <article class="reading-card">
+                <div id="chapter-content">
+                    <!-- Chapter text will be injected here by JavaScript -->
+                </div>
+            </article>
+
+            <!-- Vertical Chapter Selector -->
+            <aside class="chapter-selector">
+                <button class="chapter-btn active" data-chapter="1">Chapter 1</button>
+                <button class="chapter-btn" data-chapter="2">Chapter 2</button>
+                <button class="chapter-btn" data-chapter="3">Chapter 3</button>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Link to external JS file -->
+    <script src="reader.js"></script>
+</body>
+</html>

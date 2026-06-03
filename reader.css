@@ -1,0 +1,219 @@
+/* Import Fonts: Poppins for UI, Merriweather for cozy reading */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@300;400;700&display=swap');
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b0710;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background & Dreamy Aesthetic */
+.background {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #1a1025; /* Fallback solid color */
+    z-index: -2;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(62, 18, 104, 0.6) 0%, rgba(18, 43, 104, 0.6) 100%);
+    z-index: -1;
+}
+
+/* Rain container (retained for atmosphere, optional to add JS rain) */
+.rain-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Navigation */
+.navbar {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(184, 134, 255, 0.8);
+}
+
+/* Reader Layout */
+.reader-container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    position: relative;
+}
+
+.reader-header {
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    display: inline-block;
+    color: #b886ff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    transition: text-shadow 0.3s ease;
+}
+
+.back-btn:hover {
+    text-shadow: 0 0 10px rgba(184, 134, 255, 0.8);
+}
+
+.book-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+/* Main Content Area */
+.content-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Glassmorphic Reading Card */
+.reading-card {
+    flex: 1; /* Takes up remaining space */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    min-height: 60vh;
+}
+
+/* Typography for Reading */
+#chapter-content {
+    font-family: 'Merriweather', serif; /* Serif font for comfortable reading */
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #e2e8f0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#chapter-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+#chapter-content p {
+    margin-bottom: 25px;
+    text-indent: 20px; /* Classic novel feel */
+}
+
+/* Chapter Selector (Right Side) */
+.chapter-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 250px;
+    position: sticky;
+    top: 100px; /* Stays in view while scrolling */
+}
+
+/* Transparent glass style for inactive */
+.chapter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 1.05rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chapter-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(-5px);
+}
+
+/* Glowing blue-purple gradient for active */
+.chapter-btn.active {
+    background: linear-gradient(90deg, #7e22ce, #2563eb);
+    border: none;
+    box-shadow: 0 0 20px rgba(126, 34, 206, 0.6);
+    font-weight: 600;
+    transform: translateX(-10px);
+}
+
+/* Mobile Responsive Layout */
+@media (max-width: 900px) {
+    .content-wrapper {
+        flex-direction: column; /* Stacks vertically */
+    }
+    
+    .chapter-selector {
+        width: 100%;
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        order: 2; /* Moves chapters below the reading text */
+        margin-top: 20px;
+    }
+    
+    .chapter-btn {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+    }
+    
+    .chapter-btn:hover, .chapter-btn.active {
+        transform: translateY(-5px); /* Vertical pop instead of horizontal on mobile */
+    }
+    
+    .reading-card {
+        padding: 30px 20px;
+        order: 1; /* Keeps reading text above chapters */
+    }
+    
+    .book-title {
+        font-size: 2rem;
+    }
+}
