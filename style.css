@@ -1,0 +1,184 @@
+/* Import Modern Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0b0710;
+    color: #ffffff;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* 1. Full-screen background image placeholder */
+.background {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Using a fallback color and background image */
+    background: #1a1025 url('assets/bg.jpg') no-repeat center center/cover;
+    opacity: 0.5; /* Soften the image */
+    z-index: -2;
+}
+
+/* Purple and blue dreamy aesthetic gradient overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(62, 18, 104, 0.6) 0%, rgba(18, 43, 104, 0.6) 100%);
+    z-index: -1;
+}
+
+/* 2. Gentle Rain Effect CSS */
+.rain-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; /* Prevents rain from blocking clicks */
+    z-index: 0;
+    overflow: hidden;
+}
+
+.drop {
+    position: absolute;
+    bottom: 100%;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.3));
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(110vh); }
+}
+
+/* 3. Navigation */
+.navbar {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    /* Soft glassmorphism effect */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(184, 134, 255, 0.8);
+}
+
+/* 4. Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.quote {
+    font-size: 2.2rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 60px;
+    font-style: italic;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+/* 5. Cards Container */
+.cards-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+/* Book Card - Glassmorphism */
+.book-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth hover animations */
+.book-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 45px rgba(138, 92, 238, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.book-cover-placeholder {
+    width: 100%;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.1); /* Fallback background */
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Hide broken image icon if missing */
+    color: transparent; 
+}
+
+.book-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* 6. Explore Button */
+.explore-btn {
+    padding: 16px 45px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, #7e22ce, #2563eb);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.explore-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(126, 34, 206, 0.6);
+}
+
+/* 7. Responsive Design (Mobile friendly) */
+@media (max-width: 768px) {
+    .quote { font-size: 1.6rem; margin-bottom: 40px; }
+    .cards-container { gap: 30px; }
+    .book-card { width: 100%; max-width: 320px; }
+    .navbar { padding: 15px 20px; }
+}
