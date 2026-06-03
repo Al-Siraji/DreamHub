@@ -190,25 +190,26 @@ body::before {
 }
 
 /* Mobile */
-@media (max-width: 768px){
 
-    .quote{
-        font-size:1.6rem;
-        margin-bottom:40px;
+/* 7. Responsive Design (Mobile friendly) */
+
+@media (max-width: 768px) {
+
+    .quote {
+        font-size: 1.6rem;
+        margin-bottom: 40px;
     }
 
-    .cards-container{
-        gap:30px;
+    .cards-container {
+        gap: 30px;
     }
 
-    .book-card{
-        width:100%;
-        max-width:320px;
+    .book-card {
+        width: 100%;
+        max-width: 320px;
     }
 
-    .navbar{
-        padding:15px 20px;
+    .navbar {
+        padding: 15px 20px;
     }
-
-}x 20px; }
 }
