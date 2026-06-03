@@ -179,6 +179,13 @@ body::before {
 @media (max-width: 768px) {
     .quote { font-size: 1.6rem; margin-bottom: 40px; }
     .cards-container { gap: 30px; }
-    .book-card { width: 100%; max-width: 320px; }
+    .book-card { width: 100%; max-width: 320px; 
+    .book-card a,
+.book-card a:visited,
+.book-card a:hover,
+.book-card a:active{
+    color:white;
+    text-decoration:none;
+}
     .navbar { padding: 15px 20px; }
 }
