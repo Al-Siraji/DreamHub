@@ -3,47 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reader - Dream Hub</title>
-    <!-- Link to external CSS file -->
+    <title>Dream Hub - Reader</title>
+    <!-- Link to external CSS file for the reader page -->
     <link rel="stylesheet" href="reader.css">
 </head>
 <body>
-    <!-- Background layers from Dream Hub -->
-    <div class="background"></div>
-    <div class="rain-container" id="rain-container"></div>
+    <!-- Immersive full-screen background image and rain layers -->
+    <div class="background-overlay"></div>
+    <div class="rain-container" id="rain-layer"></div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
+    <!-- Top Header: Translucent glassmorphism navbar matching homepage -->
+    <header class="navbar">
         <div class="logo">Dream Hub</div>
-    </nav>
+    </header>
 
-    <!-- Main Reader Area -->
-    <main class="reader-container">
-        <!-- Header Section -->
-        <header class="reader-header">
-            <a href="index.html" class="back-btn">← Back to Hub</a>
-            <h1 class="book-title">Three Days Of Happiness</h1>
-        </header>
+    <!-- Main Reader Wrapper Container -->
+    <main class="reader-wrapper">
+        
+        <!-- Navigation back mechanism and centralized Book Title display -->
+        <section class="book-header">
+            <a href="index.html" class="back-link">← Back To Hub</a>
+            <h1 id="book-title" class="book-title">Loading Book...</h1>
+        </section>
 
-        <!-- Content and Sidebar -->
-        <div class="content-wrapper">
-            <!-- Glassmorphic Reading Card -->
-            <article class="reading-card">
-                <div id="chapter-content">
-                    <!-- Chapter text will be injected here by JavaScript -->
+        <!-- Two-column responsive interface layout -->
+        <div class="reader-layout">
+            
+            <!-- Large glassmorphic reading content area (Left Column on Desktop) -->
+            <article class="reading-area">
+                <h2 id="chapter-title" class="chapter-title"></h2>
+                <div id="chapter-text" class="chapter-text">
+                    <!-- Dynamic reader content injected via reader.js -->
                 </div>
             </article>
 
-            <!-- Vertical Chapter Selector -->
-            <aside class="chapter-selector">
-                <button class="chapter-btn active" data-chapter="1">Chapter 1</button>
-                <button class="chapter-btn" data-chapter="2">Chapter 2</button>
-                <button class="chapter-btn" data-chapter="3">Chapter 3</button>
+            <!-- Vertical Chapter Selector System (Right Column on Desktop, drops below on Mobile) -->
+            <aside class="chapter-sidebar">
+                <h3 class="sidebar-heading">Chapters</h3>
+                <nav class="chapter-navigation" id="chapter-buttons-container">
+                    <!-- Interactive chapter items dynamically built via reader.js -->
+                </nav>
             </aside>
+
         </div>
     </main>
 
-    <!-- Link to external JS file -->
+    <!-- Link to external functional JavaScript file -->
     <script src="reader.js"></script>
 </body>
 </html>
